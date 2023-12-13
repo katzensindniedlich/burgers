@@ -3,6 +3,6 @@ import { defineConfig } from 'astro/config'
 
 export default defineConfig(
     {
-        site: 'https://pages.dev'
+        site: 'https://burgers.pages.dev'
     }
 )
