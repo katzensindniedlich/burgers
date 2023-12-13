@@ -1,0 +1,16 @@
+{
+  "name": "burgers",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "build": "astro check && astro build"
+  },
+  "dependencies": {
+    "astro": "^4.0.4"
+  },
+  "devDependencies": {
+    "sass": "^1.69.5",
+    "typescript": "^5.3.3",
+    "@astrojs/check": "^0.3.2"
+  }
+}

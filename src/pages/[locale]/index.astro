@@ -1,0 +1,13 @@
+---
+import Layout from '@layouts/Layout.astro'
+
+export { getLanguagePaths as getStaticPaths } from '@utils'
+
+
+const
+    { locale } = Astro.params,
+    { text, meta } = Astro.props
+---
+
+
+<Layout lang={locale} title={meta.title} />

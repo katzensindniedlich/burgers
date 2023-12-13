@@ -1,0 +1,40 @@
+---
+import config from '@config'
+
+
+const { description } = Astro.props
+
+const schema = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    description: description
+}
+---
+
+
+{ config.theme &&
+    <meta 
+        name=theme-color 
+        content={config.theme}
+    >
+}
+{ description &&
+    <meta
+        name=description property=og:description
+        content={description}
+    >
+}
+<meta
+    property=og:image
+    content={new URL('android-chrome-512x512.png', Astro.site)}
+>
+<meta 
+    name=generator 
+    content={Astro.generator}
+>
+<script
+    type=application/ld+json
+    set:html={
+        JSON.stringify(schema)
+    }
+/>

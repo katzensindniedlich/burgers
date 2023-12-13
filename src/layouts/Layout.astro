@@ -1,0 +1,27 @@
+---
+import '@styles/global.scss'
+
+import SEO from '@components/SEO.astro'
+import Favicon from '@components/Favicon.astro'
+
+import { ViewTransitions } from 'astro:transitions'
+
+
+const { lang, title, description } = Astro.props
+---
+
+
+<html lang={lang}>
+	<head>
+		<meta charset=utf-8>
+		<meta name=viewport content="width=device-width, initial-scale=1">
+		<title>{title}</title>
+		<Favicon />
+		<slot name=head>
+		<ViewTransitions />
+		<SEO description={description} />
+	</head>
+	<body>
+		<slot>
+	</body>
+</html>
