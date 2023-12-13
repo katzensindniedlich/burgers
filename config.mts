@@ -1,6 +1,8 @@
-export const theme = '#111019'
+export const 
+    theme = '#111019'
 
 
 export default {
-    theme: theme
+    theme: theme,
+    defaultLocale: defaultLocale
 }

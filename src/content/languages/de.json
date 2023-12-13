@@ -1,3 +1,9 @@
 {
-    
+    "path": {
+        "/": {
+            "title": "Start",
+            "description": "für ein Schulprojekt"
+        }
+    },
+    "body": "Hey auf Deutsch"
 }

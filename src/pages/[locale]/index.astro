@@ -5,9 +5,16 @@ export { getLanguagePaths as getStaticPaths } from '@utils'
 
 
 const
+    { text } = Astro.props,
     { locale } = Astro.params,
-    { text, meta } = Astro.props
+    meta = text.path['/']
 ---
 
 
-<Layout lang={locale} title={meta.title} />
+<Layout 
+    lang={locale} 
+    title={meta.title} 
+    description={meta.description}
+>
+    {text.body}
+</Layout>

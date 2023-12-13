@@ -19,7 +19,7 @@ const { lang, title, description } = Astro.props
 		<Favicon />
 		<slot name=head>
 		<ViewTransitions />
-		<SEO description={description} />
+		<SEO lang={lang} description={description} />
 	</head>
 	<body>
 		<slot>

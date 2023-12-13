@@ -1,8 +1,12 @@
 ---
-import config from '@config'
+import { theme } from '@config'
+import { locales, getLocaleUrl } from '@utils'
 
 
-const { description } = Astro.props
+const 
+    { url } = Astro,
+    { lang, description } = Astro.props,
+    alternates = locales.filter(entry => entry !== lang)
 
 const schema = {
     "@context": "https://schema.org",
@@ -12,10 +16,10 @@ const schema = {
 ---
 
 
-{ config.theme &&
+{ theme &&
     <meta 
         name=theme-color 
-        content={config.theme}
+        content={theme}
     >
 }
 { description &&
@@ -23,6 +27,21 @@ const schema = {
         name=description property=og:description
         content={description}
     >
+}
+{ (lang !== 'en') &&
+    <link 
+        rel=alternate 
+        hreflang=x-default 
+        href={getLocaleUrl(url, 'en')}
+    >
+}
+{ alternates.map(entry => (
+        <link 
+            rel=alternate 
+            hreflang={entry} 
+            href={getLocaleUrl(url, entry)}
+        >
+    ))
 }
 <meta
     property=og:image
@@ -34,7 +53,5 @@ const schema = {
 >
 <script
     type=application/ld+json
-    set:html={
-        JSON.stringify(schema)
-    }
+    set:html={JSON.stringify(schema)}
 />

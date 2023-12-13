@@ -1,3 +1,9 @@
 {
-    
+    "path": {
+        "/": {
+            "title": "Home",
+            "description": "for a school project"
+        }
+    },
+    "body": "Hey in english"
 }
