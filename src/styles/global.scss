@@ -1,0 +1,25 @@
+@use 'scss';
+
+
+html {
+    @extend %full-height;
+    @include scss.vendors(user-select, none, webkit);
+
+    pointer-events: none;
+    scroll-behavior: smooth
+}
+
+body {
+    @extend %full-height;
+
+    margin: 0;
+    display: grid;
+	align-content: center;
+	justify-content: center;
+
+    color: #27272a;
+    background: #e6e6e6;
+    font-size: 4.5rem;
+    font-weight: bold;
+    font-family: Satoshi-Bold
+}
