@@ -3,6 +3,5 @@ export const
 
 
 export default {
-    theme: theme,
-    defaultLocale: defaultLocale
+    theme: theme
 }
