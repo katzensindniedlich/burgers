@@ -36,9 +36,9 @@ export function onRequest(context) {
         if (code === '*') break
 
         if (locales.includes(code)) {
-            return new Response.redirect(`${origin}/${code}/`, 302)
+            return Response.redirect(`${origin}/${code}/`, 302)
         }
     }
 
-    return new Response.redirect(`${origin}/en/`, 302)
+    return Response.redirect(`${origin}/en/`, 302)
 }
