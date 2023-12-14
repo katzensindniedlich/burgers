@@ -26,7 +26,7 @@ function parse(header){
 }
 
 
-export function onRequestGet(context) {
+export function onRequest(context) {
     const 
         request = context.request,
         origin = new URL(request.url).origin,
