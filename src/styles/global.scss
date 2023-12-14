@@ -13,13 +13,16 @@ body {
     @extend %full-height;
 
     margin: 0;
+    padding: 0 30px;
+
     display: grid;
 	align-content: center;
 	justify-content: center;
 
     color: #27272a;
     background: #e6e6e6;
-    font-size: 4.5rem;
+    font-size: calc(3.5vw + 3.5vh);
+    text-align: center;
     font-weight: bold;
     font-family: Satoshi-Bold
 }
