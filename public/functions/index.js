@@ -29,7 +29,7 @@ function parse(header){
 export function onRequestGet(context) {
     const 
         request = context.request,
-        origin = request.url.origin,
+        origin = new URL(request.url).origin,
         header = request.headers.get('Accept-Language')
 
     for (const { code } of parse(header)) {
