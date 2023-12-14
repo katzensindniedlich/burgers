@@ -9,5 +9,5 @@
 /*.html
   Content-Security-Policy: default-src 'none'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self'; manifest-src 'self'
 
-/:locale:/*
-  Content-Language: ":locale:"
+/:locale/*
+  Content-Language: ":locale"
