@@ -20,7 +20,7 @@ const
     description={meta.description}
 >
     <background>
-        <Image src={Burger} format=png alt=Bruger />
+        <Image src={Burger} format=png alt={text.bruger_alt} />
         <p set:text={text.body} />
     </background>
     <LanguagePicker current={locale} />
@@ -59,7 +59,8 @@ const
 
     p {
         margin: 0;
-
+        text-align: center;
+        
         color: #27272a;
         font-size: calc(3.5vw + 3.5vh);
         font-weight: bold;

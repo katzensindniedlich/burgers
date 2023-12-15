@@ -1,9 +1,10 @@
 {
     "path": {
         "/": {
-            "title": "Start",
-            "description": "für ein Schulprojekt"
+            "title": "Burgers",
+            "description": "Für ein Schulprojekt"
         }
     },
-    "body": "Wir sprechen Deutsch!"
+    "body": "Wir sprechen Deutsch!",
+    "bruger_alt": "Bürger"
 }

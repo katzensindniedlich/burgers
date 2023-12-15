@@ -1,7 +1,7 @@
 import { getCollection } from 'astro:content'
 
 
-const languages = await getCollection('languages')
+const languages = await getCollection('languages'),
 export const locales = languages.map(entry => entry.id)
 
 
@@ -11,10 +11,6 @@ export function getLocaleUrl(url: URL, locale: string) {
         slug = parts.join('/')
 
     return new URL(`/${locale}/${slug}`, url.origin)
-}
-
-export function getLocale(url: URL) {
-    return url.pathname.split('/').at(1) || undefined
 }
 
 export async function getLanguagePaths() {

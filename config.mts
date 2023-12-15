@@ -1,5 +1,5 @@
 export const 
-    name = 'Burgers',
+    name = null,
     theme = '#dd2e44'
 
 
