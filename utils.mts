@@ -1,7 +1,7 @@
 import { getCollection } from 'astro:content'
 
 
-const languages = await getCollection('languages'),
+const languages = await getCollection('languages')
 export const locales = languages.map(entry => entry.id)
 
 
