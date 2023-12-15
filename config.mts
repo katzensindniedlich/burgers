@@ -1,7 +1,9 @@
 export const 
-    theme = '#111019'
+    name = 'Burgers',
+    theme = '#dd2e44'
 
 
 export default {
+    name: name,
     theme: theme
 }
