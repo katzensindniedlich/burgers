@@ -5,24 +5,13 @@ html {
     @extend %full-height;
     @include scss.vendors(user-select, none, webkit);
 
-    pointer-events: none;
-    scroll-behavior: smooth
+    text-align: center;
+    scroll-behavior: smooth;
+    backface-visibility: hidden;
 }
 
 body {
     @extend %full-height;
 
-    margin: 0;
-    padding: 0 30px;
-
-    display: grid;
-	align-content: center;
-	justify-content: center;
-
-    color: #27272a;
-    background: #e6e6e6;
-    font-size: calc(3.5vw + 3.5vh);
-    text-align: center;
-    font-weight: bold;
-    font-family: Satoshi-Bold
+    margin: 0
 }

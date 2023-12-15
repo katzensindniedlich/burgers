@@ -6,6 +6,7 @@
       "@utils": ["utils.mts"],
       "@config": ["config.mts"],
       "@styles/*": ["src/styles/*"],
+      "@images/*": ["src/assets/images/*"],
       "@layouts/*": ["src/layouts/*"],
       "@components/*": ["src/components/*"]
     }

@@ -1,6 +1,9 @@
 ---
 import Layout from '@layouts/Layout.astro'
+import LanguagePicker from '@components/LanguagePicker.astro'
+import Burger from '@images/burger-350x350.png'
 
+import { Image } from 'astro:assets'
 export { getLanguagePaths as getStaticPaths } from '@utils'
 
 
@@ -16,5 +19,52 @@ const
     title={meta.title} 
     description={meta.description}
 >
-    {text.body}
+    <background>
+        <Image src={Burger} format=png alt=Bruger />
+        <p set:text={text.body} />
+    </background>
+    <LanguagePicker current={locale} />
 </Layout>
+
+
+<style>
+    @keyframes fade-left {
+        from {
+            opacity: 0;
+            transform: translate(2rem)
+        }
+        to {
+            opacity: 1;
+            transform: translate(0)
+        }
+    }
+
+    img {
+        max-width: 50vw;
+        max-height: 50vh;
+        object-fit: contain;
+        filter: drop-shadow(5px 5px 20px black)
+    }
+
+    background {
+        height: 100%;
+        padding: 0 30px;
+
+        gap: 10vh;
+        display: grid;
+        align-content: center;
+        justify-content: center;
+        justify-items: center
+    }
+
+    p {
+        margin: 0;
+
+        color: #27272a;
+        font-size: calc(3.5vw + 3.5vh);
+        font-weight: bold;
+        font-family: Satoshi-Bold;
+        
+        animation: fade-left 1s .3s 1 both;
+    }
+</style>

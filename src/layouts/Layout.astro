@@ -4,8 +4,6 @@ import '@styles/global.scss'
 import SEO from '@components/SEO.astro'
 import Favicon from '@components/Favicon.astro'
 
-import { ViewTransitions } from 'astro:transitions'
-
 
 const { lang, title, description } = Astro.props
 ---
@@ -18,7 +16,6 @@ const { lang, title, description } = Astro.props
 		<title>{title}</title>
 		<Favicon />
 		<slot name=head>
-		<ViewTransitions />
 		<SEO lang={lang} description={description} />
 	</head>
 	<body>
