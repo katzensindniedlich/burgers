@@ -1,13 +1,19 @@
 @use 'scss';
 
 
+::-webkit-scrollbar {
+    display: none
+}
+
 html {
     @extend %full-height;
     @include scss.vendors(user-select, none, webkit);
 
     scroll-behavior: smooth;
     backface-visibility: hidden;
+    scrollbar-width: none;
     -webkit-tap-highlight-color: transparent;
+
 }
 
 body {

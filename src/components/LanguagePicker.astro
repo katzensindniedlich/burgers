@@ -44,10 +44,11 @@ const
         background: #00000011;
         transition: all .3s ease-in-out;
 
-        &:hover {
+        &:hover, &:focus-visible {
             color: #4e4e4e;
             background: #00000040;
-            transform: scale(1.03)
+            transform: scale(1.03);
+            outline: unset
         }
     }
 </style>
