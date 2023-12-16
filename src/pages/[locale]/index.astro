@@ -19,55 +19,40 @@ const
     title={meta.title} 
     description={meta.description}
 >
-    <background>
+    <page id=one>
         <Image src={Burger} format=png alt={text.bruger_alt} />
-        <p set:text={text.body} />
-    </background>
+        <text>
+            <p set:text={text.welcome} />
+            <h1 set:text={text.hello} />
+        </text>
+    </page>
     <LanguagePicker current={locale} />
 </Layout>
 
 
-<style>
-    @keyframes fade-left {
-        from {
-            opacity: 0;
-            transform: translate(2rem)
-        }
-        to {
-            opacity: 1;
-            transform: translate(0)
-        }
-    }
-
+<style lang=scss>
     img {
         max-width: 75vw;
         max-height: 50vh;
         object-fit: contain;
-        filter: drop-shadow(5px 5px 20px black)
+
+        animation: wiggle 1.5s infinite;
+        filter: drop-shadow(5px 5px 20px black);
     }
 
-    background {
-        height: 100%;
-        padding: 0 30px;
-
-        gap: 10vh;
+    page#one {
         display: grid;
+        gap: calc(5vh + 3vw);
         align-content: center;
-        justify-content: center;
         justify-items: center;
-        backgound: #f2f2f2;
+        justify-content: center;
+
         box-shadow: inset 0px 0px 50px #0000004d
     }
 
     p {
-        margin: 0;
-        text-align: center;
-        
-        color: #27272a;
-        font-size: calc(3.5vw + 3.5vh);
-        font-weight: bold;
-        font-family: Satoshi-Bold;
-        
-        animation: fade-left 1s .3s 1 both;
+        @media (max-width: 768px) {
+            margin-bottom: 1.5vh
+        }
     }
 </style>

@@ -1,0 +1,18 @@
+@use '../core';
+
+
+$theme-default: (
+    background: #f2f2f2,
+);
+
+$theme-default-dark: (
+
+);
+
+:root.theme-default {
+    @include core.to_css_vars($theme-default);
+
+    @media (prefers-color-scheme: dark) {
+        @include core.to_css_vars($theme-default-dark)
+    }
+}

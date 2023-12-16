@@ -1,10 +1,22 @@
-%full-height {
-    height: 100%
+%no-margin {
+    margin: 0;
 }
 
 @mixin size($size) {
     width: $size;
     height: $size;
+}
+
+@mixin mobile {
+    @media (max-width: 768px) {
+        @content;
+    }
+}
+
+@mixin to_css_vars($mapping) {
+    @each $name, $value in $mapping {
+        #{'--' + $name}: $value;
+    }
 }
 
 @mixin vendors($property, $value, $vendors...) {
@@ -15,17 +27,10 @@
     }
 }
 
-@function var($name, $fallback: null) {
-    @if ($fallback != null) {
-        @return var(--#{$name}, $fallback);
-    } @else {
-        @return var(--#{$name});
-    }
-}
-
 @function get($map, $key, $default: null) {
     @if (map-has-key($map, $key)) {
         @return map-get($map, $key);
     }
+
     @return $default;
 }

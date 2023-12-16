@@ -5,6 +5,7 @@
             "description": "Für ein Schulprojekt"
         }
     },
-    "body": "Wir sprechen Deutsch!",
+    "hello": "Wir sprechen Deutsch!",
+    "welcome": "Willkommen bei Burgers Inc.",
     "bruger_alt": "Bürger"
 }
