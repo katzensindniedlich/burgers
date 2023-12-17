@@ -11,9 +11,11 @@ html {
     scrollbar-width: none;
     scroll-behavior: smooth;
     backface-visibility: hidden;
+    overflow-x: hidden;
     -webkit-tap-highlight-color: transparent;
 
-    background: var(--background)
+    background: var(--background);
+    font-family: "Noto Sans";
 }
 
 body {
@@ -24,14 +26,22 @@ text, .text {
     @extend %no-margin;
 
     text-align: center;
-    animation: fade-left 1s .3s 1 both;
-    font-family: "Noto Sans"
+    animation: hide .5s .3s 1 both;
+
+    page.current & {
+        animation: fade-left 1s .25s 1 both;
+    }
 }
 
 page {
     height: 100vh;
     padding: 0 30px;
-    display: block
+    display: grid;
+    align-content: center;
+    justify-content: center;
+    justify-items: center;
+
+    box-shadow: inset 0px 0px 50px #0000004d;
 }
 
 h1 {

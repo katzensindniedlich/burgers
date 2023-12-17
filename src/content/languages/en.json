@@ -7,5 +7,13 @@
     },
     "hello": "We're speaking english!",
     "welcome": "Welcome to Burgers Inc.",
-    "bruger_alt": "Burger"
+    "bruger_alt": "Burger",
+    "arrow_alt": "Arrow",
+    "placeholder_alt": "Placeholder",
+    "scroll": "Please scroll down",
+    "products_title": "Our Products",
+    "environment_title": "Environmental aware",
+    "location_title": "Around the World",
+    "follow_us": "Follow us ❤️",
+    "change_lang": "Change language here"
 }

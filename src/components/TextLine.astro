@@ -1,0 +1,27 @@
+---
+const { 
+    width='100%',
+    height='1rem', 
+    margin='auto', 
+    ...props 
+} = Astro.props
+---
+
+<textline {...props} />
+
+
+<style define:vars={{ 
+    width, 
+    height, 
+    margin 
+}}
+>
+    textline {
+        margin: var(--margin);
+        display: block;
+        width: var(--width);
+        height: var(--height);
+        background: #0000002e;
+        border-radius: calc(var(--height)/2);
+    }
+</style>

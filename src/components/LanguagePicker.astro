@@ -12,6 +12,7 @@ const
 { alternates.map(entry => (
         <a 
             href={`/${entry}/${Astro.url.pathname.split('/').slice(2).join('/')}`} 
+            data-astro-reload
             set:text={entry.substring(0, 2).toUpperCase()} 
         />
     ))
