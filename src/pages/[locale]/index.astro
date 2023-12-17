@@ -290,12 +290,21 @@ const
             margin-bottom: 10px;
             box-shadow: 0px 0px 20px #00000021;
         }
+
+        @media (max-width: 768px) {
+            top: 133vh;
+            padding: 15px;
+        }
     }
 
     img#arrow {
         position: absolute;
         right: 90px;
         bottom: 75px;
+
+        @media (max-width: 768px) {
+            display: none;
+        }
     }
 
     @keyframes show-arrowtext {
@@ -318,7 +327,11 @@ const
         animation: show-arrowtext 1s .3s 1 both;
         text-align: center;
         font-family: "Noto Sans";
-        word-wrap: break-word
+        word-wrap: break-word;
+
+        @media (max-width: 768px) {
+            display: none;
+        }
     }
 
     #burger {
@@ -333,9 +346,6 @@ const
 
     page#one {
         gap: calc(5vh + 3vw);
-        /*
-        border-top-right-radius: 30% 50%;
-        */
     }
 
     page#two {
@@ -354,12 +364,13 @@ const
         flex-direction: row;
         justify-content: space-evenly;
         margin-bottom: 60px;
-        .section {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-            width: 20%;
 
+        .section {
+            width: 20%;
+            display: flex;
+            gap: 10px;
+            flex-direction: column;
+            
             * {
                 animation: hide .5s .3s 1 both;
 
@@ -375,6 +386,30 @@ const
                     animation: show 1.5s .7s 1 both;
                 }
             }
+        }
+    }
+
+    @media (max-width: 768px) {
+        page#three img, page#four img, carousel item img {
+            height: fit-content;
+            max-width: 100%;
+            object-fit: contain
+        }
+        .section {
+            width: 40%!important;
+        }
+        carousel item:not(:first-child) {
+            display: none;
+        }
+        carousel item:first-child {
+            opacity: 1!important;
+            animation: unset!important;
+        }
+        page#five div {
+            margin-top: 10vh!important;
+        }
+        p {
+            margin-bottom: 1.5vh
         }
     }
 
@@ -442,12 +477,6 @@ const
 
     main {
         width: 100%;
-    }
-
-    @media (max-width: 768px) {
-        p {
-            margin-bottom: 1.5vh
-        }
     }
 </style>
 
