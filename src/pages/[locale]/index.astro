@@ -507,24 +507,29 @@ const
         }
     }
 
+    var
+        ts = 0,
+        te = 0
+
     (f=>{
+        f('touchstart', e=>{ts=e.changedTouches[0].screenY});
+        f('touchend', e=>{te=e.changedTouches[0].screenY;if(te>ts){scrollpage(-1)}else if(te<ts){scrollpage(1)}});
+        f('touchmove', (e)=>{e.preventDefault()},{passive:false});
         f('keydown',e=>{if(e.key=='ArrowDown'){scrollpage(1);e.preventDefault()}else if(e.key=='ArrowUp'){scrollpage(-1);e.preventDefault()}});
         f('wheel',e=>{e.preventDefault();(e.deltaY>0)?scrollpage(1):scrollpage(-1)},{passive:false})
     })(window.addEventListener)
 
     const pageObserver = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry=>{
-            console.log(entry);
-
             if (entry.isIntersecting) {
                 entry.target.classList.add('current')
-                document.documentElement.id = `currentPage-${entry.target.id}`
+                // document.documentElement.id = `currentPage-${entry.target.id}`
             }
             else {
                 entry.target.classList.remove('current')
             }
         })
-    }, {rootMargin: '0%', threshold: '.8'})
+    }, {rootMargin:'0%', threshold:'.8'})
 
     document.querySelectorAll('page').forEach(e=>pageObserver.observe(e))
 </script>
