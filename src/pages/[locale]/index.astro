@@ -41,7 +41,9 @@ const
             <p set:text={text.welcome} />
             <h1 set:text={text.hello} />
         </text>
-        <arrowtext set:text={text.change_lang} />
+        <arrowtext 
+            set:text={text.change_lang} 
+        />
         <Image
             src={Arrow}
             id=arrow
@@ -62,32 +64,35 @@ const
             height='calc(.8vw + .8vh)' 
             width=40% 
             margin="0 auto 0 20%" 
-            class=text 
+            class=text
         />
         <TextLine 
             height='calc(.8vw + .8vh)' 
             width=60% 
             margin="2vh auto 0 auto" 
-            class=text 
+            class=text
         />
         <carousel>
             { ([1,2,3,4,5]).map(i=>
-            <item>
-                <Image
-                    src={Placeholder}
-                    format=png
-                    id=placeholder
-                    alt={text.placeholder_alt}
-                />
-                <TextLine width=75% margin=0 />
-            </item>
+                <item>
+                    <Image
+                        src={Placeholder}
+                        format=png
+                        id=placeholder
+                        alt={text.placeholder_alt}
+                    />
+                    <TextLine width=75% margin=0 />
+                </item>
             )}
         </carousel>
     </page>
 
     <page id=three>
-        <h1 class=text set:text={text.environment_title} />
-        <colums>
+        <h1 
+            class=text 
+            set:text={text.environment_title} 
+        />
+        <column>
             <div class=section>
                 <Image
                     src={Placeholder}
@@ -114,13 +119,16 @@ const
                 <TextLine />
                 <TextLine width=75% margin=0 />
             </div>
-        </colums>
+        </column>
     </page>
 
     <page id=four>
-        <h1 class=text set:text={text.location_title} />
+        <h1 
+            class=text 
+            set:text={text.location_title} 
+        />
         <main>
-            <colums>
+            <column>
                 <div class=section>
                     <Image
                         src={Placeholder}
@@ -139,66 +147,91 @@ const
                     <TextLine margin=0 />
                     <TextLine width=75% margin=0 />
                 </div>
-            </colums>
+            </column>
         </main>
     </page>
 
     <page id=five>
-        <h1 class=text set:text={text.follow_us} />
+        <h1 
+            class=text 
+            set:text={text.follow_us} 
+        />
         <div>
             <a
                 class=social
                 href="https://www.instagram.com/real.burgers.inc/"
-                target="_blank"
+                target=_blank
                 style="--color: #f5852994; animation-delay: .8s"
             >
-                <Image src={Instagram} alt=Instagram />
+                <Image 
+                    src={Instagram} 
+                    alt=Instagram 
+                />
             </a>
             <a
                 class=social
                 href="https://www.youtube.com/"
-                target="_blank"
+                target=_blank
                 style="--color: rgba(255, 16, 39, 0.5); animation-delay: 1s"
             >
-                <Image src={Youtube} alt=Youtube />
+                <Image 
+                    src={Youtube} 
+                    alt=Youtube
+                />
             </a>
             <a
                 class=social
                 href="https://twitter.com/"
-                target="_blank"
+                target=_blank
                 style="--color: #08a2e985; animation-delay: 1.2s"
             >
-                <Image src={Twitter} alt=Twitter />
+                <Image 
+                    src={Twitter} 
+                    alt=Twitter 
+                />
             </a>
             <a
                 class=social
                 href="https://www.facebook.com/"
-                target="_blank"
+                target=_blank
                 style="--color: #1876f279; animation-delay: 1.4s"
             >
-                <Image src={Facebook} alt=Facebook />
+                <Image 
+                    src={Facebook} 
+                    alt=Facebook 
+                />
             </a>
             <a
                 class=social
                 href="https://github.com/katzensindniedlich/Burgers/"
-                target="_blank"
+                target=_blank
                 style="--color: #0d111785; animation-delay: 1.6s"
             >
-                <Image src={Github} alt=Github />
+                <Image 
+                    src={Github} 
+                    alt=Github 
+                />
             </a>
             <a
                 class=social
                 href="https://www.linkedin.com/"
-                target="_blank"
+                target=_blank
                 style="--color: #0076b580; animation-delay: 1.8s"
             >
-                <Image src={Linkedin} alt=Linkedin />
+                <Image 
+                    src={Linkedin} 
+                    alt=Linkedin 
+                />
             </a>
         </div>
     </page>
 
-    <Indicator description={text.scroll} />
-    <LanguagePicker current={locale} />
+    <Indicator 
+        description={text.scroll} 
+    />
+    <LanguagePicker 
+        current={locale} 
+    />
 </Layout>
 
 
@@ -212,40 +245,39 @@ const
     $carousel-steps-fraction: math.div(100, $carousel-items);
     $carousel-easing: cubic-bezier(0.37, 0, 0.63, 1);
 
-
-    @keyframes carousel-animate {
-        0% {
+    @keyframes carousel {
+        from {
             visibility: hidden;
             opacity: 0;
-            transform: translateX(250%) scale(.7);
+            transform: translateX(250%) scale(.7)
         }
         #{$slide-change-timing}%,
         #{$carousel-steps-fraction}% {
             visibility: visible;
-            opacity: 0.8;
-            transform: translateX(150%) scale(.9);
+            opacity: .8;
+            transform: translateX(150%) scale(.9)
         }
         #{$carousel-steps-fraction + $slide-change-timing}%,
         #{$carousel-steps-fraction * 2}% {
             visibility: visible;
             opacity: 1;
-            transform: translateX(0) scale(1);
+            transform: translateX(0) scale(1)
         }
         #{($carousel-steps-fraction * 2) + $slide-change-timing}%,
         #{$carousel-steps-fraction * 3}% {
             visibility: visible;
-            opacity: 0.8;
-            transform: translateX(-150%) scale(.9);
+            opacity: .8;
+            transform: translateX(-150%) scale(.9)
         }
         #{($carousel-steps-fraction * 3) + $slide-change-timing}% {
             visibility: visible;
             opacity: 0;
-            transform: translateX(-250%) scale(.9);
+            transform: translateX(-250%) scale(.9)
         }
-        100% {
+        to {
             visibility: hidden;
             opacity: 0;
-            transform: translateX(-250%) scale(.7);
+            transform: translateX(-250%) scale(.7)
         }
     }
 
@@ -257,43 +289,43 @@ const
         width: 100%;
 
         page.current & {
-            animation: show 1.5s .7s 1 both;
+            animation: show 1.5s .7s 1 both
         }
-    }
 
-    carousel item {
-        position: absolute;
-        top: 144vh;
-        opacity: 0;
-        width: fit-content;
-        display: flex;
-        flex-direction: column;
-        padding: 30px;
-        border-radius: 20px;
-        will-change: transform, opacity;
-        box-shadow: 0px 0px 20px #00000021;
-        color: #848d97;
-        font-family: "Noto Sans";
-        animation: carousel-animate $carousel-duration $carousel-easing infinite;
-
-		@for $i from 1 through ($carousel-items - 1) {
-			&:nth-child(#{$i}) {
-				animation-delay: calc(#{$carousel-delay-fraction} * #{$i - 2});
-			}
-		}
-		&:last-child {
-			animation-delay: calc(-#{$carousel-delay-fraction} * 2);
-		}
-
-        img {
-            object-fit: cover;
-            margin-bottom: 10px;
+        item {
+            position: absolute;
+            top: 144vh;
+            opacity: 0;
+            width: fit-content;
+            display: flex;
+            flex-direction: column;
+            padding: 30px;
+            border-radius: 20px;
+            will-change: transform, opacity;
             box-shadow: 0px 0px 20px #00000021;
-        }
+            color: #848d97;
+            animation: carousel $carousel-duration $carousel-easing infinite;
 
-        @media (max-width: 768px) {
-            top: 133vh;
-            padding: 15px;
+            @for $i from 1 through ($carousel-items - 1) {
+                &:nth-child(#{$i}) {
+                    animation-delay: calc(#{$carousel-delay-fraction} * #{$i - 2})
+                }
+            }
+
+            &:last-child {
+                animation-delay: calc(-#{$carousel-delay-fraction} * 2)
+            }
+
+            img {
+                object-fit: cover;
+                margin-bottom: 10px;
+                box-shadow: 0px 0px 20px #00000021
+            }
+
+            @media (max-width: 768px) {
+                top: 133vh;
+                padding: 15px
+            }
         }
     }
 
@@ -303,7 +335,7 @@ const
         bottom: 75px;
 
         @media (max-width: 768px) {
-            display: none;
+            display: none
         }
     }
 
@@ -326,11 +358,10 @@ const
         color: #ccced1;
         animation: show-arrowtext 1s .3s 1 both;
         text-align: center;
-        font-family: "Noto Sans";
         word-wrap: break-word;
 
         @media (max-width: 768px) {
-            display: none;
+            display: none
         }
     }
 
@@ -340,24 +371,24 @@ const
         object-fit: contain;
 
         animation: wiggle 1.5s infinite;
-        filter: drop-shadow(5px 5px 20px black);
+        filter: drop-shadow(5px 5px 20px black)
     }
 
 
     page#one {
-        gap: calc(5vh + 3vw);
+        gap: calc(5vh + 3vw)
     }
 
     page#two {
-        display: block;
+        display: block
     }
 
     page#three {
         align-content: space-evenly;
-        justify-content: normal;
+        justify-content: normal
     }
 
-    colums {
+    column {
         width: 100%;
         display: flex;
 
@@ -375,7 +406,7 @@ const
                 animation: hide .5s .3s 1 both;
 
                 page.current & {
-                    animation: fade-left 1s 1s 1 both;
+                    animation: fade-left 1s 1s 1 both
                 }
             }
             img {
@@ -383,7 +414,7 @@ const
                 box-shadow: 0px 0px 20px #00000021;
 
                 page.current & {
-                    animation: show 1.5s .7s 1 both;
+                    animation: show 1.5s .7s 1 both
                 }
             }
         }
@@ -396,17 +427,17 @@ const
             object-fit: contain
         }
         .section {
-            width: 40%!important;
+            width: 40%!important
         }
         carousel item:not(:first-child) {
-            display: none;
+            display: none
         }
         carousel item:first-child {
             opacity: 1!important;
-            animation: unset!important;
+            animation: unset!important
         }
         page#five div {
-            margin-top: 10vh!important;
+            margin-top: 10vh!important
         }
         p {
             margin-bottom: 1.5vh
@@ -416,7 +447,7 @@ const
     page#four {
         align-content: space-evenly;
 
-        colums {
+        column {
             justify-content: space-around;
 
             .section {
@@ -435,7 +466,7 @@ const
             justify-content: space-evenly;
             margin-top: 15vh;
             flex-wrap: wrap;
-            row-gap: 30px;
+            row-gap: 30px
         }
     }
 
@@ -443,8 +474,9 @@ const
         width: 100px;
         height: 100px;
         border-radius: 10px;
-        animation: hide .5s .3s 1 both;
         box-shadow: 0px 7px 15px var(--color);
+
+        animation: hide .5s .3s 1 both;
 
         display: grid;
         justify-content: center;
@@ -452,18 +484,17 @@ const
 
         &:hover,  &:focus-visible {
             outline: 0;
-            box-shadow: 0px 10px 17px var(--color);
-
+            box-shadow: 0px 10px 17px var(--color)
         }
 
         page.current & {
-            animation: popup 1.3s .7s ease both;
+            animation: popup 1.3s .7s ease both
         }
     }
 
     @keyframes popup {
         from {
-            opacity: 0;
+            opacity: 0
         }
         50% {
             box-shadow: 0px 15px 20px var(--color);
@@ -476,9 +507,11 @@ const
     }
 
     main {
-        width: 100%;
+        width: 100%
     }
 </style>
 
 
-<script defer>i=document.getElementsByTagName('indicator')[0];l='five';pl={0:'one',1:'two',2:'three',3:'four',4:'five'};po=new IntersectionObserver((en,o)=>{en.forEach(e=>{if(e.isIntersecting){e.target.classList.add('current')}else{e.target.classList.remove('current')}})},{rootMargin:'0%',threshold:'.8'});ts=0;te=0;function sp(s){n=pl[Math.round(window.scrollY/window.innerHeight)+s];if(n!==undefined){i.style.animation='hide .5s 1 both';document.getElementById(n).scrollIntoView();if(n!==l){i.style.animation='show 1s 2s 1 both'}}};(f=>{f('touchstart',e=>{ts=e.changedTouches[0].screenY});f('touchend',e=>{te=e.changedTouches[0].screenY;if(te>ts){sp(-1)}else if(te<ts){sp(1)}});f('touchmove',e=>{e.preventDefault()},{passive:false});f('keydown',e=>{if(e.key=='ArrowDown'){sp(1);e.preventDefault()}else if(e.key=='ArrowUp'){sp(-1);e.preventDefault()}});f('wheel',e=>{e.preventDefault();(e.deltaY>0)?sp(1):sp(-1)},{passive:false})})(window.addEventListener);document.querySelectorAll('page').forEach(e=>po.observe(e))</script>
+<script defer>
+i=document.getElementsByTagName('indicator')[0];l='five';pl={0:'one',1:'two',2:'three',3:'four',4:'five'};po=new IntersectionObserver((en,o)=>{en.forEach(e=>{if(e.isIntersecting){e.target.classList.add('current')}else{e.target.classList.remove('current')}})},{rootMargin:'0%',threshold:'.8'});ts=0;te=0;function sp(s){n=pl[Math.round(window.scrollY/window.innerHeight)+s];if(n!==undefined){i.style.animation='hide .5s 1 both';document.getElementById(n).scrollIntoView();if(n!==l){i.style.animation='show 1s 2s 1 both'}}};(f=>{f('touchstart',e=>{ts=e.changedTouches[0].screenY});f('touchend',e=>{te=e.changedTouches[0].screenY;if(te>ts){sp(-1)}else if(te<ts){sp(1)}});f('touchmove',e=>{e.preventDefault()},{passive:false});f('keydown',e=>{if(e.key=='ArrowDown'){sp(1);e.preventDefault()}else if(e.key=='ArrowUp'){sp(-1);e.preventDefault()}});f('wheel',e=>{e.preventDefault();(e.deltaY>0)?sp(1):sp(-1)},{passive:false})})(window.addEventListener);document.querySelectorAll('page').forEach(e=>po.observe(e))
+</script>
