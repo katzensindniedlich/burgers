@@ -22,7 +22,6 @@ body {
 }
 
 img {
-    max-width: 100%;
     object-fit: contain
 }
 
@@ -56,9 +55,33 @@ h1 {
     font-size: calc(3.5vw + 3.5vh)
 }
 
+h6 {
+    @extend %no-margin;
+
+    color: var(--text-color);
+    font-size: calc(1.6vw + 1.6vh);
+}
+
 p {
     @extend %no-margin;
 
     color: var(--text-color);
-    font-size: calc(1.6vw + 1.6vh)
+    line-height: 2;
+    margin-block-start: -10px;
+}
+
+a {
+    color: var(--link-color);
+    text-decoration: none;
+    font-weight: bolder;
+    transition: color .4s ease-out;
+
+    &:hover, &:focus-visible {
+        outline: unset;
+        color: var(--link-color-hover);
+    }
+}
+
+bl {
+    font-weight: bolder
 }

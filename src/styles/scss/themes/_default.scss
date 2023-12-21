@@ -12,6 +12,8 @@ $theme-default: (
     note-color: #b8b8b8,
     note-bold-color: #4e4e4e,
     hint-color: #ccced1,
+    link-color: #77b255,
+    link-color-hover: #ffcc4d,
 );
 
 $theme-default-dark: (
@@ -21,7 +23,9 @@ $theme-default-dark: (
 :root.theme-default {
     @include core.to_css_vars($theme-default);
 
-    @media (prefers-color-scheme: dark) {
-        @include core.to_css_vars($theme-default-dark)
+    @if $theme-default-dark != () {
+        @media (prefers-color-scheme: dark) {
+            @include core.to_css_vars($theme-default-dark)
+        }
     }
 }
