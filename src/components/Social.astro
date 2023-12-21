@@ -3,7 +3,7 @@ import { Image } from 'astro:assets'
 
 
 const 
-    { color, href, imgSrc, alt='', delay='0s', ...props } = Astro.props
+    { color, href, imgSrc, media='', delay='0s', ...props } = Astro.props
 ---
 
 
@@ -11,12 +11,12 @@ const
     href={href}
     class=social
     target=_blank
-    aria-label={`Go to our ${name} profile at ${new URL(href).hostname}`}
+    aria-label={`Go to our ${media} profile at ${new URL(href).hostname}`}
     rel=noopener
     {...props}
 >   
     { imgSrc &&
-        <Image src={imgSrc} alt={alt} />
+        <Image src={imgSrc} alt={media} />
     }
     <slot>
 </a>
