@@ -6,14 +6,25 @@ import Social from '@components/Social.astro'
 
 import Icon from '@images/icon-350x350.png'
 import Arrow from '@images/arrow-37x84.png'
+
+import Curly from '@images/curly-350x350.png'
+import Burger from '@images/burger-350x350.png'
+import Fries from '@images/fries-350x350.png'
+import Wrap from '@images/wrap-350x350.png'
+import Salad from '@images/salad-350x350.png'
+
+
 import Placeholder from '@images/placeholder-300x300.png'
-import Linkedin from '@images/linkedin-64x64.png'
+
+import Farm from '@images/farm.png'
+import Map from '@images/map-440x292.png'
+import Instagram from '@images/instagram-64x64.png'
 import Youtube from '@images/youtube-64x64.png'
 import Twitter from '@images/twitter-64x64.png'
-import Instagram from '@images/instagram-64x64.png'
 import Facebook from '@images/facebook-64x64.png'
 import Github from '@images/github-64x64.png'
-import Map from '@images/map-440x292.png'
+import Linkedin from '@images/linkedin-64x64.png'
+
 
 import { Image } from 'astro:assets'
 export { getLanguagePaths as getStaticPaths } from '@utils'
@@ -64,47 +75,47 @@ const
         <carousel>
             <carousel-item>
                 <Image
-                    src={Placeholder}
-                    alt=Placeholder
+                    src={Curly}
+                    alt=Curly
                 />
                 <p
-                    set:html={text.products.a}
+                    set:html={text.products.curly}
                 />
             </carousel-item>
             <carousel-item>
                 <Image
-                    src={Placeholder}
-                    alt=Placeholder
+                    src={Burger}
+                    alt=Burger
                 />
                 <p
-                    set:html={text.products.b}
+                    set:html={text.products.burger}
                 />
             </carousel-item>
             <carousel-item>
                 <Image
-                    src={Placeholder}
-                    alt=Placeholder
+                    src={Fries}
+                    alt=Fries
                 />
                 <p
-                    set:html={text.products.c}
+                    set:html={text.products.fries}
                 />
             </carousel-item>
             <carousel-item>
                 <Image
-                    src={Placeholder}
-                    alt=Placeholder
+                    src={Wrap}
+                    alt=Wrap
                 />
                 <p
-                    set:html={text.products.d}
+                    set:html={text.products.wrap}
                 />
             </carousel-item>
             <carousel-item>
                 <Image
-                    src={Placeholder}
-                    alt=Placeholder
+                    src={Salad}
+                    alt=Salad
                 />
                 <p
-                    set:html={text.products.e}
+                    set:html={text.products.salad}
                 />
             </carousel-item>
         </carousel>
@@ -118,11 +129,11 @@ const
         <columns>
             <column>
                 <Image
-                    src={Placeholder}
-                    alt=Placeholder
+                    src={Farm}
+                    alt=Farm
                 />
                 <p
-                    set:html={text.environment.text_left}
+                    set:html={text.environment.farm}
                 />
             </column>
             <column>
@@ -131,7 +142,7 @@ const
                     alt=Placeholder
                 />
                 <p
-                    set:html={text.environment.text_right}
+                    set:html={text.environment.local}
                 />
             </column>
         </columns>
@@ -152,6 +163,7 @@ const
                         href=/
                         target=_blank
                         set:text={text.location.find}
+                        aria-label='Find your nearest store location'
                     />
                 </p>
             </column>
@@ -284,7 +296,7 @@ const
     carousel-item {
         opacity: 0;
         position: absolute;
-        top: 144vh;
+        top: 142vh;
         width: fit-content;
 
         display: flex;
@@ -416,7 +428,7 @@ const
     @media (max-width: 768px) {
         #Arrow, 
         arrow-hint, 
-        carousel-item:not(:first-child) {
+        carousel-item:not(:nth-child(2)) {
             display: none
         }
 
@@ -433,10 +445,10 @@ const
         }
 
         carousel-item {
-            top: 139vh;
+            top: 138vh;
             padding: 15px;
 
-            &:first-child {
+            &:nth-child(2) {
                 opacity: 1;
                 animation: unset
             }
