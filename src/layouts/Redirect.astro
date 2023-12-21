@@ -10,7 +10,7 @@ const { to } = Astro.props
         <link rel=canonical href={to}>
         <meta name=robots content=noindex>
         <script define:vars={{ to }}>location.replace(to)</script>
-        <title>{to}</title>
+        <title set:text={to} />
         <link rel=prefetch href={to} as=document>
     </head>
 </html>

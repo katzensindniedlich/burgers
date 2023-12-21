@@ -8,14 +8,13 @@
 html {
     @include scss.vendors(user-select, none, webkit);
 
-    scrollbar-width: none;
     scroll-behavior: smooth;
     backface-visibility: hidden;
     overflow-x: hidden;
     -webkit-tap-highlight-color: transparent;
 
     background: var(--background);
-    font-family: "Noto Sans";
+    font-family: var(--font)
 }
 
 body {
@@ -29,7 +28,7 @@ text, .text {
     animation: hide .5s .3s 1 both;
 
     page.current & {
-        animation: fade-left 1s .25s 1 both;
+        animation: fade-left 1s .25s 1 both
     }
 }
 
@@ -41,19 +40,19 @@ page {
     justify-content: center;
     justify-items: center;
 
-    box-shadow: inset 0px 0px 50px #0000004d;
+    box-shadow: inset 0px 0px 50px var(--page-shadow);
 }
 
 h1 {
     @extend %no-margin;
 
-    color: #27272a;
-    font-size: calc(3.5vw + 3.5vh);
+    color: var(--title-color);
+    font-size: calc(3.5vw + 3.5vh)
 }
 
 p {
     @extend %no-margin;
 
-    color: #848d97;
-    font-size: calc(1.6vw + 1.6vh);
+    color: var(--text-color);
+    font-size: calc(1.6vw + 1.6vh)
 }

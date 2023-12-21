@@ -1,6 +1,6 @@
 export const 
     name = null,
-    theme = '#dd2e44'
+    theme = '#111019'
 
 
 export default {

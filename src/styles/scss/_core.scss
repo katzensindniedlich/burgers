@@ -2,11 +2,6 @@
     margin: 0;
 }
 
-@mixin size($size) {
-    width: $size;
-    height: $size;
-}
-
 @mixin mobile {
     @media (max-width: 768px) {
         @content;

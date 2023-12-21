@@ -3,6 +3,7 @@ import Layout from '@layouts/Layout.astro'
 import LanguagePicker from '@components/LanguagePicker.astro'
 import Indicator from '@components/Indicator.astro'
 import TextLine from '@components/TextLine.astro'
+import Social from '@components/Social.astro'
 
 import Burger from '@images/burger-350x350.png'
 import Arrow from '@images/arrow-37x84.png'
@@ -97,8 +98,8 @@ const
                 <Image
                     src={Placeholder}
                     format=png
-                    id=placeholder
                     alt={text.placeholder_alt}
+                    id=placeholder
                 />
                 <TextLine width=40% margin="10px 0 0 0" />
                 <TextLine />
@@ -110,8 +111,8 @@ const
                 <Image
                     src={Placeholder}
                     format=png
-                    id=placeholder
                     alt={text.placeholder_alt}
+                    id=placeholder
                 />
                 <TextLine width=40% margin="10px 0 0 0" />
                 <TextLine />
@@ -133,8 +134,8 @@ const
                     <Image
                         src={Placeholder}
                         format=png
-                        id=placeholder
                         alt={text.placeholder_alt}
+                        id=placeholder
                     />
                     <TextLine width=60% margin="10px 0 0 0" />
                 </div>
@@ -157,72 +158,42 @@ const
             set:text={text.follow_us} 
         />
         <div>
-            <a
-                class=social
-                href="https://www.instagram.com/real.burgers.inc/"
-                target=_blank
-                style="--color: #f5852994; animation-delay: .8s"
-            >
-                <Image 
-                    src={Instagram} 
-                    alt=Instagram 
-                />
-            </a>
-            <a
-                class=social
-                href="https://www.youtube.com/"
-                target=_blank
-                style="--color: rgba(255, 16, 39, 0.5); animation-delay: 1s"
-            >
-                <Image 
-                    src={Youtube} 
-                    alt=Youtube
-                />
-            </a>
-            <a
-                class=social
-                href="https://twitter.com/"
-                target=_blank
-                style="--color: #08a2e985; animation-delay: 1.2s"
-            >
-                <Image 
-                    src={Twitter} 
-                    alt=Twitter 
-                />
-            </a>
-            <a
-                class=social
-                href="https://www.facebook.com/"
-                target=_blank
-                style="--color: #1876f279; animation-delay: 1.4s"
-            >
-                <Image 
-                    src={Facebook} 
-                    alt=Facebook 
-                />
-            </a>
-            <a
-                class=social
-                href="https://github.com/katzensindniedlich/Burgers/"
-                target=_blank
-                style="--color: #0d111785; animation-delay: 1.6s"
-            >
-                <Image 
-                    src={Github} 
-                    alt=Github 
-                />
-            </a>
-            <a
-                class=social
-                href="https://www.linkedin.com/"
-                target=_blank
-                style="--color: #0076b580; animation-delay: 1.8s"
-            >
-                <Image 
-                    src={Linkedin} 
-                    alt=Linkedin 
-                />
-            </a>
+            <Social
+                color='#f5852994'
+                href='https://www.instagram.com/real.burgers.inc/'
+                delay='.8s'
+                imgSrc={Instagram}
+            />
+            <Social
+                color='#ff102780'
+                href='https://www.youtube.com/'
+                delay='1s'
+                imgSrc={Youtube}
+            />
+            <Social
+                color='#08a2e985'
+                href='https://twitter.com/'
+                delay='1.2s'
+                imgSrc={Twitter}
+            />
+            <Social
+                color='#1876f279'
+                href='https://www.facebook.com/'
+                delay='1.4s'
+                imgSrc={Facebook}
+            />
+            <Social
+                color='#0d111785'
+                href='https://github.com/katzensindniedlich/Burgers/'
+                delay='1.6s'
+                imgSrc={Github}
+            />
+            <Social
+                color='#0076b580'
+                href='https://www.linkedin.com/'
+                delay='1.8s'
+                imgSrc={Linkedin}
+            />
         </div>
     </page>
 
@@ -243,7 +214,7 @@ const
     $slide-change-timing: 5;
     $carousel-delay-fraction: math.div($carousel-duration, $carousel-items);
     $carousel-steps-fraction: math.div(100, $carousel-items);
-    $carousel-easing: cubic-bezier(0.37, 0, 0.63, 1);
+    $carousel-easing: cubic-bezier(.37, 0, .63, 1);
 
     @keyframes carousel {
         from {
@@ -339,24 +310,24 @@ const
         }
     }
 
-    @keyframes show-arrowtext {
+    @keyframes show-rotated {
         from {
             opacity: 0;
             transform: rotate(30deg)
         }
         to {
             opacity: 1;
-            transform:  rotate(30deg)
+            transform: rotate(30deg)
         }
     }
 
     arrowtext {
-        position: absolute;
         width: 150px;
+        position: absolute;
         right: 30px;
         bottom: 165px;
-        color: #ccced1;
-        animation: show-arrowtext 1s .3s 1 both;
+        color: var(--hint-color);
+        animation: show-rotated 1s .3s both;
         text-align: center;
         word-wrap: break-word;
 
@@ -403,10 +374,10 @@ const
             flex-direction: column;
             
             * {
-                animation: hide .5s .3s 1 both;
+                animation: hide .5s .3s both;
 
                 page.current & {
-                    animation: fade-left 1s 1s 1 both
+                    animation: fade-left 1s 1s both;
                 }
             }
             img {
@@ -414,7 +385,7 @@ const
                 box-shadow: 0px 0px 20px #00000021;
 
                 page.current & {
-                    animation: show 1.5s .7s 1 both
+                    animation: show 1.5s .7s both;
                 }
             }
         }
@@ -470,42 +441,6 @@ const
         }
     }
 
-    .social {
-        width: 100px;
-        height: 100px;
-        border-radius: 10px;
-        box-shadow: 0px 7px 15px var(--color);
-
-        animation: hide .5s .3s 1 both;
-
-        display: grid;
-        justify-content: center;
-        align-content: center;
-
-        &:hover,  &:focus-visible {
-            outline: 0;
-            box-shadow: 0px 10px 17px var(--color)
-        }
-
-        page.current & {
-            animation: popup 1.3s .7s ease both
-        }
-    }
-
-    @keyframes popup {
-        from {
-            opacity: 0
-        }
-        50% {
-            box-shadow: 0px 15px 20px var(--color);
-            transform: translateY(-5px)
-        }
-        to {
-            opacity: 1;
-            transform: translateY(0px)
-        }
-    }
-
     main {
         width: 100%
     }
@@ -513,5 +448,5 @@ const
 
 
 <script defer>
-i=document.getElementsByTagName('indicator')[0];l='five';pl={0:'one',1:'two',2:'three',3:'four',4:'five'};po=new IntersectionObserver((en,o)=>{en.forEach(e=>{if(e.isIntersecting){e.target.classList.add('current')}else{e.target.classList.remove('current')}})},{rootMargin:'0%',threshold:'.8'});ts=0;te=0;function sp(s){n=pl[Math.round(window.scrollY/window.innerHeight)+s];if(n!==undefined){i.style.animation='hide .5s 1 both';document.getElementById(n).scrollIntoView();if(n!==l){i.style.animation='show 1s 2s 1 both'}}};(f=>{f('touchstart',e=>{ts=e.changedTouches[0].screenY});f('touchend',e=>{te=e.changedTouches[0].screenY;if(te>ts){sp(-1)}else if(te<ts){sp(1)}});f('touchmove',e=>{e.preventDefault()},{passive:false});f('keydown',e=>{if(e.key=='ArrowDown'){sp(1);e.preventDefault()}else if(e.key=='ArrowUp'){sp(-1);e.preventDefault()}});f('wheel',e=>{e.preventDefault();(e.deltaY>0)?sp(1):sp(-1)},{passive:false})})(window.addEventListener);document.querySelectorAll('page').forEach(e=>po.observe(e))
+i=document.getElementsByTagName('indicator')[0];l='five';pl={0:'one',1:'two',2:'three',3:'four',4:'five'};po=new IntersectionObserver(en=>{en.forEach(e=>{if(e.isIntersecting){e.target.classList.add('current')}else{e.target.classList.remove('current')}})},{rootMargin:'0%',threshold:'.8'});ts=0;te=0;function sp(s){n=pl[Math.round(window.scrollY/window.innerHeight)+s];if(n!==undefined){i.style.animation='hide .5s 1 both';document.getElementById(n).scrollIntoView();if(n!==l){i.style.animation='show 1s 2s 1 both'}}};(f=>{f('touchstart',e=>{ts=e.changedTouches[0].screenY});f('touchend',e=>{te=e.changedTouches[0].screenY;if(te>ts){sp(-1)}else if(te<ts){sp(1)}});f('touchmove',e=>{e.preventDefault()},{passive:false});f('keydown',e=>{if(e.key=='ArrowDown'){sp(1);e.preventDefault()}else if(e.key=='ArrowUp'){sp(-1);e.preventDefault()}});f('wheel',e=>{e.preventDefault();(e.deltaY>0)?sp(1):sp(-1)},{passive:false})})(window.addEventListener);document.querySelectorAll('page').forEach(e=>po.observe(e))
 </script>

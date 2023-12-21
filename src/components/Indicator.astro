@@ -1,11 +1,13 @@
 ---
-const { description='' } = Astro.props
+const { description='', ...props } = Astro.props
 ---
 
 
-<indicator transition:presist=indicator />
+<indicator {...props} />
+
 
 <style
+    is:global
     lang=scss
     define:vars={{
         indicatorText: `"${description}"`
@@ -13,7 +15,7 @@ const { description='' } = Astro.props
 >
     indicator {
         z-index: 999;
-        color: #ccced1;
+        color: var(--hint-color);
 
         &::after {
             content: '';
@@ -25,33 +27,31 @@ const { description='' } = Astro.props
             width: 25px;
             height: 25px;
 
-            border-right: 3px solid #ccced1;
-            border-bottom: 3px solid #ccced1;
+            border-right: 3px solid;
+            border-bottom: 3px solid;
+            bolder-color: var(--hint-color);
             border-bottom-right-radius: 4px;
 
-            animation: fade_move_down 2s ease-in-out infinite;
+            animation: indicator 2s ease-in-out infinite
         }
 
         &::before {
             content: var(--indicatorText);
 
+            width: 100%;
             position: fixed;
             bottom: 60px;
-            width: 100%;
 
             text-align: center;
-            animation: fade-left 1s .3s 1 both;
+            animation: fade-left 1s .3s 1 both
         }
 
-        @media (max-height: 768px) {
-            display: none;
-        }
-        @media (max-width: 768px) {
-            display: none;
+        @media (max-height: 768px) or (max-width: 768px) {
+            display: none
         }
     }
 
-    @keyframes fade_move_down {
+    @keyframes indicator {
         from {
             opacity: 0;
             transform: translate(0,-10px) rotate(45deg)

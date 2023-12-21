@@ -10,8 +10,8 @@ const
     image = new URL('android-chrome-192x192.png', Astro.site)
 
 const schema = {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
     image: image,
     description: description,
     inLanguage: lang
@@ -19,72 +19,73 @@ const schema = {
 ---
 
 
+<meta
+    property='og:image'
+    content={image}
+>
+<meta
+    property='og:image:type'
+    content='image/png'
+>
+<meta
+    property='og:image:width'
+    content='192'
+>
+<meta
+    property='og:image:height'
+    content='192'
+>
+<meta
+    property='og:locale'
+    content={lang}
+>
+<meta 
+    name='generator' 
+    content={Astro.generator}
+>
+<script
+    type='application/ld+json'
+    set:html={JSON.stringify(schema)}
+/>
+
 { name &&
     <meta
-        property=og:site_name
+        property='og:site_name'
         content={name}
     >
 }
 { theme &&
     <meta 
-        name=theme-color 
+        name='theme-color'
         content={theme}
     >
 }
 { description &&
     <meta
-        name=description property=og:description
+        name='description' property='og:description'
         content={description}
     >
 }
-<meta
-    property=og:image
-    content={image}
->
-<meta
-    property=og:image:type
-    content=image/png
->
-<meta
-    property=og:image:width
-    content=192
->
-<meta
-    property=og:image:height
-    content=192
->
-<meta
-    property=og:locale
-    content={lang}
->
-<meta 
-    name=generator 
-    content={Astro.generator}
->
-<script
-    type=application/ld+json
-    set:html={JSON.stringify(schema)}
-/>
 { (lang !== 'en') &&
     <link
-        rel=alternate
-        hreflang=x-default
+        rel='alternate'
+        hreflang='x-default'
         href={getLocaleUrl(url, 'en')}
     >
 }
 { alternates.map(entry => (
         <meta
-            property=og:locale:alternate
+            property='og:locale:alternate'
             content={entry}
         >
         <link
-            rel=alternate
+            rel='alternate'
             hreflang={entry}
             href={getLocaleUrl(url, entry)}
         >
         <link
-            rel=prefetch
-            as=document
+            rel='prefetch'
+            as='document'
             href={getLocaleUrl(url, entry)}
         >
     ))

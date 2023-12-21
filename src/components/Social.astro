@@ -1,0 +1,70 @@
+---
+import { Image } from 'astro:assets'
+
+
+const 
+    { color, href, imgSrc, alt='', delay='0s', ...props } = Astro.props
+---
+
+
+<a
+    href={href}
+    class=social
+    target=_blank
+    {...props}
+>   
+    { imgSrc &&
+        <Image src={imgSrc} alt={alt} />
+    }
+    <slot>
+</a>
+
+
+<style
+    lang=scss
+    is:global
+    define:vars={{ 
+        color, 
+        delay
+    }}
+>
+    @use 'sass:math';
+
+    $social-boxsize: 100px;
+    
+    a.social {
+        width: $social-boxsize;
+        height: $social-boxsize;
+        border-radius: math.div($social-boxsize, 10);
+        box-shadow: 0 7px 15px var(--color);
+
+        animation: hide .5s .3s both;
+
+        display: grid;
+        justify-content: center;
+        align-content: center;
+
+        &:hover, &:focus-visible {
+            outline: 0;
+            box-shadow: 0 10px 17px var(--color);
+        }
+
+        page.current & {
+            animation: popup 1.3s var(--delay) ease both;
+        }
+    }
+
+    @keyframes popup {
+        from {
+            opacity: 0
+        }
+        50% {
+            box-shadow: 0 15px 20px var(--color);
+            transform: translateY(-5px)
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0px)
+        }
+    }
+</style>
