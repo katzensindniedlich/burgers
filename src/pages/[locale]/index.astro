@@ -56,10 +56,6 @@ const
         <h1
             class=text
             set:text={text.products_title}
-            style={{
-                'padding-top': '10vh',
-                'padding-bottom': '5vh'
-            }}
         />
         <TextLine 
             height='calc(.8vw + .8vh)' 
@@ -186,36 +182,42 @@ const
                 color=#f5852994
                 href=https://www.instagram.com/real.burgers.inc/
                 delay=.8s
+                name=Instagram
                 imgSrc={Instagram}
             />
             <Social
                 color=#ff102780
                 href=https://www.youtube.com/
                 delay=1s
+                name=Youtube
                 imgSrc={Youtube}
             />
             <Social
                 color=#08a2e985
                 href=https://twitter.com/
                 delay=1.2s
+                name=Twitter
                 imgSrc={Twitter}
             />
             <Social
                 color=#1876f279
                 href=https://www.facebook.com/
                 delay=1.4s
+                name=Facebook
                 imgSrc={Facebook}
             />
             <Social
                 color=#0d111785
                 href=https://github.com/katzensindniedlich/Burgers/
                 delay=1.6s
+                name=Github
                 imgSrc={Github}
             />
             <Social
                 color=#0076b580
                 href=https://www.linkedin.com/
                 delay=1.8s
+                name=Linkedin
                 imgSrc={Linkedin}
             />
         </socials>
@@ -364,7 +366,11 @@ const
     }
 
     page#two {
-        display: block
+        display: block;
+
+        h1 {
+            padding: 10vh 0 5vh 0
+        }
     }
 
     page#three {
@@ -379,24 +385,24 @@ const
         justify-content: space-evenly;
 
         margin-bottom: 60px;
+    }
 
-        column {
-            width: 20%;
-            display: flex;
-            gap: 15px;
-            flex-direction: column;
-            animation: hide .5s .3s both;
+    column {
+        width: 20%;
+        display: flex;
+        gap: 15px;
+        flex-direction: column;
+        animation: hide .5s .3s both;
+
+        page.current & {
+            animation: fade-left 1s 1s both;
+        }
+
+        img {
+            box-shadow: 0 0 20px var(--box-shadow);
 
             page.current & {
-                animation: fade-left 1s 1s both;
-            }
-
-            img {
-                box-shadow: 0 0 20px var(--box-shadow);
-
-                page.current & {
-                    animation: show 1.5s .7s both;
-                }
+                animation: show 1.5s .7s both
             }
         }
     }
@@ -405,12 +411,12 @@ const
         align-content: space-evenly;
 
         columns {
-            justify-content: space-around;
+            justify-content: space-around
+        }
 
-            column {
-                gap: 20px;
-                width: 35%
-            }
+        column {
+            gap: 20px;
+            width: 35%
         }
     }
 
@@ -425,12 +431,22 @@ const
     }
 
     @media (max-width: 768px) {
+        #arrow, 
+        arrow-hint, 
+        carousel-item:not(:first-child) {
+            display: none
+        }
+
         column {
             width: 40%!important
         }
 
-        page#five div {
+        socials {
             margin-top: 6vh!important
+        }
+
+        p {
+            margin-bottom: 1.5vh
         }
 
         carousel-item {
@@ -441,23 +457,11 @@ const
                 opacity: 1;
                 animation: unset
             }
-
-            &:not(:first-child) {
-                display: none
-            }
-        }
-
-        #arrow, arrow-hint {
-            display: none
-        }
-
-        p {
-            margin-bottom: 1.5vh
         }
     }
 </style>
 
 
 <script defer>
-(w,d=>{i=d.getElementsByTagName('indicator')[0];l='five';pl={0:'one',1:'two',2:'three',3:'four',4:l};po=new IntersectionObserver(en=>{en.forEach(e=>{if(e.isIntersecting){e.target.classList.add('current')}else{e.target.classList.remove('current')}})},{rootMargin:'0%',threshold:'.8'});ts=0;te=0;function sp(s){n=pl[Math.round(w.scrollY/w.innerHeight)+s];if(n!==undefined){i.style.animation='hide .5s both';d.getElementById(n).scrollIntoView();if(n!==l){i.style.animation='show 1s 2s both'}}};(f=>{f('touchstart',e=>{ts=e.changedTouches[0].screenY});f('touchend',e=>{te=e.changedTouches[0].screenY;if(te>ts){sp(-1)}else if(te<ts){sp(1)}});f('touchmove',e=>{e.preventDefault()},{passive:false});f('keydown',e=>{if(e.key=='ArrowDown'){sp(1);e.preventDefault()}else if(e.key=='ArrowUp'){sp(-1);e.preventDefault()}});f('wheel',e=>{e.preventDefault();(e.deltaY>0)?sp(1):sp(-1)},{passive:false})})(w.addEventListener);d.querySelectorAll('page').forEach(e=>po.observe(e))})(window,document)
+((w,d)=>{i=d.getElementsByTagName('indicator')[0];l='five';pl={0:'one',1:'two',2:'three',3:'four',4:l};po=new IntersectionObserver(en=>{en.forEach(e=>{if(e.isIntersecting){e.target.classList.add('current')}else{e.target.classList.remove('current')}})},{rootMargin:'0%',threshold:'.8'});ts=0;te=0;function sp(s){n=pl[Math.round(w.scrollY/w.innerHeight)+s];if(n!==undefined){i.style.animation='hide .5s both';d.getElementById(n).scrollIntoView();if(n!==l){i.style.animation='show 1s 2s both'}}};(f=>{f('touchstart',e=>{ts=e.changedTouches[0].screenY});f('touchend',e=>{te=e.changedTouches[0].screenY;if(te>ts){sp(-1)}else if(te<ts){sp(1)}});f('touchmove',e=>{e.preventDefault()},{passive:false});f('keydown',e=>{if(e.key=='ArrowDown'){sp(1);e.preventDefault()}else if(e.key=='ArrowUp'){sp(-1);e.preventDefault()}});f('wheel',e=>{e.preventDefault();(e.deltaY>0)?sp(1):sp(-1)},{passive:false})})(w.addEventListener);d.querySelectorAll('page').forEach(e=>po.observe(e))})(window,document)
 </script>
