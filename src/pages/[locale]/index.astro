@@ -42,7 +42,7 @@ const
             <p set:text={text.welcome} />
             <h1 set:text={text.hello} />
         </text>
-        <arrowtext 
+        <arrow-hint 
             set:text={text.change_lang} 
         />
         <Image
@@ -74,17 +74,46 @@ const
             class=text
         />
         <carousel>
-        { ([1,2,3,4,5]).map(_=>
             <carousel-item>
                 <Image
                     src={Placeholder}
                     format=png
                     alt={text.placeholder_alt}
-                    id=placeholder
                 />
                 <TextLine width=75% margin=0 />
             </carousel-item>
-        )}
+            <carousel-item>
+                <Image
+                    src={Placeholder}
+                    format=png
+                    alt={text.placeholder_alt}
+                />
+                <TextLine width=75% margin=0 />
+            </carousel-item>
+            <carousel-item>
+                <Image
+                    src={Placeholder}
+                    format=png
+                    alt={text.placeholder_alt}
+                />
+                <TextLine width=75% margin=0 />
+            </carousel-item>
+            <carousel-item>
+                <Image
+                    src={Placeholder}
+                    format=png
+                    alt={text.placeholder_alt}
+                />
+                <TextLine width=75% margin=0 />
+            </carousel-item>
+            <carousel-item>
+                <Image
+                    src={Placeholder}
+                    format=png
+                    alt={text.placeholder_alt}
+                />
+                <TextLine width=75% margin=0 />
+            </carousel-item>
         </carousel>
     </page>
 
@@ -99,7 +128,6 @@ const
                     src={Placeholder}
                     format=png
                     alt={text.placeholder_alt}
-                    id=placeholder
                 />
                 <TextLine width=40% margin='10px 0 0 0' />
                 <TextLine />
@@ -107,12 +135,11 @@ const
                 <TextLine />
                 <TextLine width=75% margin=0 />
             </column>
-            <column
+            <column>
                 <Image
                     src={Placeholder}
                     format=png
                     alt={text.placeholder_alt}
-                    id=placeholder
                 />
                 <TextLine width=40% margin='10px 0 0 0' />
                 <TextLine />
@@ -134,7 +161,6 @@ const
                     src={Placeholder}
                     format=png
                     alt={text.placeholder_alt}
-                    id=placeholder
                 />
                 <TextLine width=60% margin='10px 0 0 0' />
             </column>
@@ -251,60 +277,67 @@ const
         }
     }
 
-carousel {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    overflow: hidden;
-    
-    animation: hide .5s .3s both;
-
-    page.current & {
-        animation: show 1.5s .7s both
-    }
-
-    carousel-item {
-        position: absolute;
-        top: 144vh;
-        opacity: 0;
-        width: fit-content;
+    carousel {
+        width: 100%;
         display: flex;
-        flex-direction: column;
-        padding: 30px;
-        border-radius: 20px;
-        box-shadow: 0px 0px 20px #00000021;
-        color: #848d97;
-        animation: carousel $carousel-duration cubic-bezier(.37, 0, .63, 1) infinite;
+        justify-content: center;
+        overflow: hidden;
+        
+        animation: hide .5s .3s both;
 
-        @for $i from 1 through ($carousel-items - 1) {
-            &:nth-child(#{$i}) {
-                animation-delay: calc(#{$carousel-per-delay} * #{$i - 2})
+        page.current & {
+            animation: show 1.5s .7s both
+        }
+
+        carousel-item {
+            opacity: 0;
+            position: absolute;
+            top: 144vh;
+            width: fit-content;
+
+            display: flex;
+            flex-direction: column;
+            padding: 30px;
+
+            box-shadow: 0 0 20px var(--box-shadow);
+            border-radius: 20px;
+            color: var(--text-color);
+
+            animation: carousel $carousel-duration cubic-bezier(.37, 0, .63, 1) infinite;
+
+            img {
+                margin-bottom: 10px;
+                box-shadow: inherit;
+            }
+
+            @for $index from 1 through ($carousel-items - 1) {
+                &:nth-child(#{$index}) {
+                    animation-delay: #{$carousel-per-delay * ($index - 2)}
+                }
+            }
+
+            &:last-child {
+                animation-delay: -#{$carousel-per-delay * 2}
             }
         }
-
-        &:last-child {
-            animation-delay: calc(-#{$carousel-per-delay} * 2)
-        }
-
-        img {
-            margin-bottom: 10px;
-            box-shadow: 0 0 20px #00000021;
-        }
-
-        @media (max-width: 768px) {
-            top: 133vh;
-            padding: 15px
-        }
     }
-}
+
+    page#one {
+        gap: calc(5vh + 3vw)
+    }
+
+    #burger {
+        max-width: 75vw;
+        max-height: 50vh;
+
+        animation: wiggle 1.5s infinite;
+        filter: drop-shadow(5px 5px 20px black)
+    }
+
     #arrow {
         position: absolute;
         right: 90px;
-        bottom: 75px;
-
-        @media (max-width: 768px) {
-            display: none
-        }
+        bottom: 75px
     }
 
     @keyframes show-rotated {
@@ -318,7 +351,7 @@ carousel {
         }
     }
 
-    arrowtext {
+    arrow-hint {
         width: 150px;
         position: absolute;
         right: 30px;
@@ -328,22 +361,6 @@ carousel {
         animation: show-rotated 1s .3s both;
         text-align: center;
         word-wrap: break-word;
-
-        @media (max-width: 768px) {
-            display: none
-        }
-    }
-
-    #burger {
-        max-width: 75vw;
-        max-height: 50vh;
-
-        animation: wiggle 1.5s infinite;
-        filter: drop-shadow(5px 5px 20px black)
-    }
-
-    page#one {
-        gap: calc(5vh + 3vw)
     }
 
     page#two {
@@ -355,14 +372,12 @@ carousel {
         justify-content: normal
     }
 
-
-
     columns {
         width: 100%;
         display: flex;
-
         flex-direction: row;
         justify-content: space-evenly;
+
         margin-bottom: 60px;
 
         column {
@@ -370,45 +385,19 @@ carousel {
             display: flex;
             gap: 15px;
             flex-direction: column;
-            
-            * {
-                animation: hide .5s .3s both;
+            animation: hide .5s .3s both;
 
-                page.current & {
-                    animation: fade-left 1s 1s both;
-                }
+            page.current & {
+                animation: fade-left 1s 1s both;
             }
+
             img {
-                animation: hide .5s .3s 1 both;
-                box-shadow: 0px 0px 20px #00000021;
+                box-shadow: 0 0 20px var(--box-shadow);
 
                 page.current & {
                     animation: show 1.5s .7s both;
                 }
             }
-        }
-    }
-
-    @media (max-width: 768px) {
-        page#three img, page#four img, carousel carousel-item img {
-            height: fit-content;
-            max-width: 100%
-        }
-        column {
-            width: 40%!important
-        }
-        carousel carousel-item:not(:first-child) {
-            display: none
-        }
-        carousel carousel-item:first-child {
-            opacity: 1!important;
-            animation: unset!important
-        }
-        page#five div {
-            margin-top: 10vh!important
-        }
-        p {
-            margin-bottom: 1.5vh
         }
     }
 
@@ -433,6 +422,38 @@ carousel {
         justify-content: space-evenly;
         row-gap: 30px;
         flex-wrap: wrap
+    }
+
+    @media (max-width: 768px) {
+        column {
+            width: 40%!important
+        }
+
+        page#five div {
+            margin-top: 6vh!important
+        }
+
+        carousel-item {
+            top: 133vh;
+            padding: 15px;
+
+            &:first-child {
+                opacity: 1;
+                animation: unset
+            }
+
+            &:not(:first-child) {
+                display: none
+            }
+        }
+
+        #arrow, arrow-hint {
+            display: none
+        }
+
+        p {
+            margin-bottom: 1.5vh
+        }
     }
 </style>
 
