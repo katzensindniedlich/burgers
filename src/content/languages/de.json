@@ -6,19 +6,32 @@
         }
     },
 
+    "products": {
+        "title": "Unsere Produkte",
+        "text": "Lorem ipsum dolor sit sadipscing asduhnah elitr, <br>sed diam nonumy tempor invidunt ut labore et dolore magna.",
+        "a": "1",
+        "b": "2",
+        "c": "3",
+        "d": "4",
+        "e": "5"
+    },
+
+    "environment": {
+        "title": "Umweltbewusst",
+        "text_left": "Lorem ipsum dolor sit amet, <br>consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.",
+        "text_right": "Lorem ipsum dolor sit amet, <br>consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet."
+    },
+
+    "location": {
+        "title": "In der ganzen Welt",
+        "text": "<bl>Lorem ipsum dolor sit amet</bl>, <br>consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo <bl>duo dolores</bl> et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.<br><bl>Lorem ipsum</bl> dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.",
+        "description": "Wir sind auch in Ihrer Nähe.",
+        "find": "Finde uns ➜"
+    },
+
     "hello": "Wir sprechen Deutsch!",
     "welcome": "Willkommen bei Burgers Inc.",
-    "scroll_note": "Scrollen Sie Runter",
-    "products_title": "Unsere Produkte",
-    "environment_title": "Umweltbewusst",
-    "location_title": "Auf der ganzen Welt",
-    "location_text": "",
-    "map_description": "",
-    "find_location": "",
+    "scroll": "Scrollen Sie Runter",
     "follow_us": "Folge uns ❤️",
-    "change_lang": "Sprache hier änderbar",
-
-    "bruger_alt": "Bürger",
-    "arrow_alt": "Pfeil",
-    "placeholder_alt": "Platzhalter"
+    "lang_change_hint": "Sprache hier änderbar"
 }

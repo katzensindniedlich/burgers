@@ -5,6 +5,10 @@
     display: none
 }
 
+::selection {
+    background: var(--selection-color);
+}
+
 html {
     @include scss.vendors(user-select, none, webkit);
 
@@ -57,17 +61,20 @@ h1 {
 
 h6 {
     @extend %no-margin;
+    @extend %selectable;
 
     color: var(--text-color);
     font-size: calc(1.6vw + 1.6vh);
+    font-weight: normal
 }
 
 p {
     @extend %no-margin;
+    @extend %selectable;
 
     color: var(--text-color);
     line-height: 2;
-    margin-block-start: -10px;
+    margin-block-start: -10px
 }
 
 a {
