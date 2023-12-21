@@ -9,6 +9,7 @@
     "products": {
         "title": "Our Products",
         "text": "We  are proud of our delicious fast food products<br>with fresh ingredients, elegant packaging and the best taste!",
+
         "curly": "@ Custom fries as desired",
         "burger": "@ Our Complete Burger as a specialty",
         "fries": "@ Our in-house French fries",
@@ -18,8 +19,8 @@
 
     "environment": {
         "title": "Environmentally aware",
-        "farm": "Lorem ipsum dolor sit amet, <br>consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.",
-        "local": "Lorem ipsum dolor sit amet, <br>consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet."
+        "farm": "<bl>Organic ingredients</bl><br>We attach great importance to sustainability and healthy food. Our products are made entirely from <bl>organic ingredients</bl>, and the necessary animal husbandry is only carried out in the <bl>best possible conditions</bl>.<br>This protects the environment in the long term.",
+        "local": "<bl>Human distribution</bl><br>Our products are prepared by hand and, because they are <bl>bought locally</bl>, are as fresh as possible.<br>We also sell in cooperation with <bl>small organic stores</bl>.<br>This noticeably reduces the impact on the environment."
     },
 
     "location": {

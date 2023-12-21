@@ -9,6 +9,7 @@
     "products": {
         "title": "Unsere Produkte",
         "text": "Wir sind stolz auf leckere Fast-Food-Produkte<br>mit frischen Zutaten, edler Verpackung und bestem Geschmack!",
+
         "curly": "@ Eigene Fritten nach Wunsch",
         "burger": "@ Unser Complete Burger als Spezialität",
         "fries": "@ Unsere hauseigene Pommes",
@@ -18,8 +19,8 @@
 
     "environment": {
         "title": "Umweltbewusst",
-        "farm": "Lorem ipsum dolor sit amet, <br>consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.",
-        "local": "Lorem ipsum dolor sit amet, <br>consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet."
+        "farm": "<bl>Biologische Zutaten</bl><br>Wir legen großen Wert auf Nachhaltigkeit und gesundes Essen. So bestehen unsere Produkte vollkommen aus <bl>Biozutaten</bl>, und die nötige Tierhaltung erfolgt nur in <bl>bester Haltungsstufe</bl>.<br>Die Umwelt wird somit nachhaltig geschont.",
+        "local": "<bl>Humaner Vertrieb</bl><br>Unsere Produkte werden von Hand zubereitet und sind, weil sie <bl>lokal gekauft</bl> werden, so frisch wie möglich.<br>Zudem verkaufen wir in Kooperation mit <bl>kleinen Bioläden</bl>.<br>Dadurch werden die Auswirkungen auf die Umwelt spürbar verringert."
     },
 
     "location": {
