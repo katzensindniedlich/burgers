@@ -15,11 +15,11 @@
 }
 
 @mixin vendors($property, $value, $vendors...) {
-    #{$property}: $value;
-
     @each $vendor in $vendors {
         #{'-' + $vendor + '-' + $property}: $value;
     }
+
+    #{$property}: $value;
 }
 
 %selectable {

@@ -11,6 +11,8 @@ const
     href={href}
     class=social
     target=_blank
+    aria-label={`Go to our ${name} website ${new URL(href).hostname}`}
+    rel=noopener
     {...props}
 >   
     { imgSrc &&
