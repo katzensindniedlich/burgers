@@ -11,9 +11,9 @@
 
 html {
     @include scss.vendors(user-select, none, webkit);
+    @include scss.vendors(backface-visibility, hidden, webkit);
 
     scroll-behavior: smooth;
-    backface-visibility: hidden;
     overflow-x: hidden;
     -webkit-tap-highlight-color: transparent;
 

@@ -293,6 +293,7 @@ const
         opacity: 0;
         position: absolute;
         top: 142vh;
+        width: -moz-fit-content;
         width: fit-content;
 
         display: flex;
@@ -372,7 +373,11 @@ const
 
     page#three {
         align-content: space-evenly;
-        justify-content: normal
+        justify-content: normal;
+
+        column {
+            align-items: normal
+        }
     }
 
     columns {
