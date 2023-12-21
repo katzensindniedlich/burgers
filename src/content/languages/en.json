@@ -11,13 +11,13 @@
         "text": "Lorem ipsum dolor sit sadipscing asduhnah elitr, <br>sed diam nonumy tempor invidunt ut labore et dolore magna.",
         "curly": "@ Custom fries as desired",
         "burger": "@ Our Complete Burger as a specialty",
-        "fries": "@ Our in-house fries",
+        "fries": "@ Our in-house French fries",
         "wrap": "@ Warps in menu with soft drinks",
         "salad": "@ Mix and match salads"
     },
 
     "environment": {
-        "title": "Environmental aware",
+        "title": "Environmentally aware",
         "farm": "Lorem ipsum dolor sit amet, <br>consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.",
         "local": "Lorem ipsum dolor sit amet, <br>consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet."
     },
