@@ -16,7 +16,7 @@ import Salad from '@images/salad-350x350.png'
 
 import Placeholder from '@images/placeholder-300x300.png'
 
-import Farm from '@images/farm.png'
+import Farm from '@images/farm-400x400.png'
 import Map from '@images/map-440x292.png'
 import Instagram from '@images/instagram-64x64.png'
 import Youtube from '@images/youtube-64x64.png'
@@ -138,8 +138,8 @@ const
             </column>
             <column>
                 <Image
-                    src={Placeholder}
-                    alt=Placeholder
+                    src={Farm}
+                    alt=Farm
                 />
                 <p
                     set:html={text.environment.local}
@@ -157,6 +157,7 @@ const
             <column>
                 <Image
                     src={Map}
+                    format=png
                     alt=Map
                 />
                 <p>{text.location.description} <a

@@ -9,11 +9,11 @@
     "products": {
         "title": "Our Products",
         "text": "Lorem ipsum dolor sit sadipscing asduhnah elitr, <br>sed diam nonumy tempor invidunt ut labore et dolore magna.",
-        "curly": "1",
-        "burger": "2",
-        "fries": "3",
-        "wrap": "4",
-        "salad": "5"
+        "curly": "@ Custom fries as desired",
+        "burger": "@ Our Complete Burger as a specialty",
+        "fries": "@ Our in-house fries",
+        "wrap": "@ Warps in menu with soft drinks",
+        "salad": "@ Mix and match salads"
     },
 
     "environment": {
