@@ -64,27 +64,27 @@ const
         <TextLine 
             height='calc(.8vw + .8vh)' 
             width=40% 
-            margin="0 auto 0 20%" 
+            margin='0 auto 0 20%' 
             class=text
         />
         <TextLine 
             height='calc(.8vw + .8vh)' 
             width=60% 
-            margin="2vh auto 0 auto" 
+            margin='2vh auto 0 auto' 
             class=text
         />
         <carousel>
-            { ([1,2,3,4,5]).map(i=>
-                <item>
-                    <Image
-                        src={Placeholder}
-                        format=png
-                        id=placeholder
-                        alt={text.placeholder_alt}
-                    />
-                    <TextLine width=75% margin=0 />
-                </item>
-            )}
+        { ([1,2,3,4,5]).map(_=>
+            <carousel-item>
+                <Image
+                    src={Placeholder}
+                    format=png
+                    alt={text.placeholder_alt}
+                    id=placeholder
+                />
+                <TextLine width=75% margin=0 />
+            </carousel-item>
+        )}
         </carousel>
     </page>
 
@@ -93,34 +93,34 @@ const
             class=text 
             set:text={text.environment_title} 
         />
-        <column>
-            <div class=section>
+        <columns>
+            <column>
                 <Image
                     src={Placeholder}
                     format=png
                     alt={text.placeholder_alt}
                     id=placeholder
                 />
-                <TextLine width=40% margin="10px 0 0 0" />
+                <TextLine width=40% margin='10px 0 0 0' />
                 <TextLine />
                 <TextLine />
                 <TextLine />
                 <TextLine width=75% margin=0 />
-            </div>
-            <div class=section>
+            </column>
+            <column
                 <Image
                     src={Placeholder}
                     format=png
                     alt={text.placeholder_alt}
                     id=placeholder
                 />
-                <TextLine width=40% margin="10px 0 0 0" />
+                <TextLine width=40% margin='10px 0 0 0' />
                 <TextLine />
                 <TextLine />
                 <TextLine />
                 <TextLine width=75% margin=0 />
-            </div>
-        </column>
+            </column>
+        </columns>
     </page>
 
     <page id=four>
@@ -128,28 +128,26 @@ const
             class=text 
             set:text={text.location_title} 
         />
-        <main>
+        <columns>
             <column>
-                <div class=section>
-                    <Image
-                        src={Placeholder}
-                        format=png
-                        alt={text.placeholder_alt}
-                        id=placeholder
-                    />
-                    <TextLine width=60% margin="10px 0 0 0" />
-                </div>
-                <div class=section>
-                    <TextLine width=40% margin=0 />
-                    <TextLine margin=0 />
-                    <TextLine margin=0 />
-                    <TextLine margin=0 />
-                    <TextLine margin=0 />
-                    <TextLine margin=0 />
-                    <TextLine width=75% margin=0 />
-                </div>
+                <Image
+                    src={Placeholder}
+                    format=png
+                    alt={text.placeholder_alt}
+                    id=placeholder
+                />
+                <TextLine width=60% margin='10px 0 0 0' />
             </column>
-        </main>
+            <column>
+                <TextLine width=40% margin=0 />
+                <TextLine margin=0 />
+                <TextLine margin=0 />
+                <TextLine margin=0 />
+                <TextLine margin=0 />
+                <TextLine margin=0 />
+                <TextLine width=75% margin=0 />
+            </column>
+        </columns>
     </page>
 
     <page id=five>
@@ -157,48 +155,48 @@ const
             class=text 
             set:text={text.follow_us} 
         />
-        <div>
+        <socials>
             <Social
-                color='#f5852994'
-                href='https://www.instagram.com/real.burgers.inc/'
-                delay='.8s'
+                color=#f5852994
+                href=https://www.instagram.com/real.burgers.inc/
+                delay=.8s
                 imgSrc={Instagram}
             />
             <Social
-                color='#ff102780'
-                href='https://www.youtube.com/'
-                delay='1s'
+                color=#ff102780
+                href=https://www.youtube.com/
+                delay=1s
                 imgSrc={Youtube}
             />
             <Social
-                color='#08a2e985'
-                href='https://twitter.com/'
-                delay='1.2s'
+                color=#08a2e985
+                href=https://twitter.com/
+                delay=1.2s
                 imgSrc={Twitter}
             />
             <Social
-                color='#1876f279'
-                href='https://www.facebook.com/'
-                delay='1.4s'
+                color=#1876f279
+                href=https://www.facebook.com/
+                delay=1.4s
                 imgSrc={Facebook}
             />
             <Social
-                color='#0d111785'
-                href='https://github.com/katzensindniedlich/Burgers/'
-                delay='1.6s'
+                color=#0d111785
+                href=https://github.com/katzensindniedlich/Burgers/
+                delay=1.6s
                 imgSrc={Github}
             />
             <Social
-                color='#0076b580'
-                href='https://www.linkedin.com/'
-                delay='1.8s'
+                color=#0076b580
+                href=https://www.linkedin.com/
+                delay=1.8s
                 imgSrc={Linkedin}
             />
-        </div>
+        </socials>
     </page>
 
     <Indicator 
-        description={text.scroll} 
+        description={text.scroll_note} 
     />
     <LanguagePicker 
         current={locale} 
@@ -206,101 +204,100 @@ const
 </Layout>
 
 
-<style lang=scss>
+<style 
+    is:global
+    lang=scss 
+>
     @use 'sass:math';
 
     $carousel-duration: 15s;
     $carousel-items: 5;
-    $slide-change-timing: 5;
-    $carousel-delay-fraction: math.div($carousel-duration, $carousel-items);
-    $carousel-steps-fraction: math.div(100, $carousel-items);
-    $carousel-easing: cubic-bezier(.37, 0, .63, 1);
+    $carousel-timing: 5;
+    $carousel-per-delay: math.div($carousel-duration, $carousel-items);
+    $carousel-per-step: math.div(100, $carousel-items);
 
     @keyframes carousel {
         from {
-            visibility: hidden;
             opacity: 0;
             transform: translateX(250%) scale(.7)
         }
-        #{$slide-change-timing}%,
-        #{$carousel-steps-fraction}% {
-            visibility: visible;
+
+        #{$carousel-timing}%,
+        #{$carousel-per-step}% {
             opacity: .8;
             transform: translateX(150%) scale(.9)
         }
-        #{$carousel-steps-fraction + $slide-change-timing}%,
-        #{$carousel-steps-fraction * 2}% {
-            visibility: visible;
+
+        #{$carousel-per-step + $carousel-timing}%,
+        #{$carousel-per-step * 2}% {
             opacity: 1;
             transform: translateX(0) scale(1)
         }
-        #{($carousel-steps-fraction * 2) + $slide-change-timing}%,
-        #{$carousel-steps-fraction * 3}% {
-            visibility: visible;
+
+        #{($carousel-per-step * 2) + $carousel-timing}%,
+        #{$carousel-per-step * 3}% {
             opacity: .8;
             transform: translateX(-150%) scale(.9)
         }
-        #{($carousel-steps-fraction * 3) + $slide-change-timing}% {
-            visibility: visible;
+
+        #{($carousel-per-step * 3) + $carousel-timing}% {
             opacity: 0;
             transform: translateX(-250%) scale(.9)
         }
+
         to {
-            visibility: hidden;
             opacity: 0;
             transform: translateX(-250%) scale(.7)
         }
     }
 
-    carousel {
-        animation: hide .5s .3s 1 both;
-        display: flex;
-        justify-content: center;
-        overflow: hidden;
-        width: 100%;
+carousel {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+    
+    animation: hide .5s .3s both;
 
-        page.current & {
-            animation: show 1.5s .7s 1 both
-        }
-
-        item {
-            position: absolute;
-            top: 144vh;
-            opacity: 0;
-            width: fit-content;
-            display: flex;
-            flex-direction: column;
-            padding: 30px;
-            border-radius: 20px;
-            will-change: transform, opacity;
-            box-shadow: 0px 0px 20px #00000021;
-            color: #848d97;
-            animation: carousel $carousel-duration $carousel-easing infinite;
-
-            @for $i from 1 through ($carousel-items - 1) {
-                &:nth-child(#{$i}) {
-                    animation-delay: calc(#{$carousel-delay-fraction} * #{$i - 2})
-                }
-            }
-
-            &:last-child {
-                animation-delay: calc(-#{$carousel-delay-fraction} * 2)
-            }
-
-            img {
-                object-fit: cover;
-                margin-bottom: 10px;
-                box-shadow: 0px 0px 20px #00000021
-            }
-
-            @media (max-width: 768px) {
-                top: 133vh;
-                padding: 15px
-            }
-        }
+    page.current & {
+        animation: show 1.5s .7s both
     }
 
-    img#arrow {
+    carousel-item {
+        position: absolute;
+        top: 144vh;
+        opacity: 0;
+        width: fit-content;
+        display: flex;
+        flex-direction: column;
+        padding: 30px;
+        border-radius: 20px;
+        box-shadow: 0px 0px 20px #00000021;
+        color: #848d97;
+        animation: carousel $carousel-duration cubic-bezier(.37, 0, .63, 1) infinite;
+
+        @for $i from 1 through ($carousel-items - 1) {
+            &:nth-child(#{$i}) {
+                animation-delay: calc(#{$carousel-per-delay} * #{$i - 2})
+            }
+        }
+
+        &:last-child {
+            animation-delay: calc(-#{$carousel-per-delay} * 2)
+        }
+
+        img {
+            margin-bottom: 10px;
+            box-shadow: 0 0 20px #00000021;
+        }
+
+        @media (max-width: 768px) {
+            top: 133vh;
+            padding: 15px
+        }
+    }
+}
+    #arrow {
         position: absolute;
         right: 90px;
         bottom: 75px;
@@ -326,6 +323,7 @@ const
         position: absolute;
         right: 30px;
         bottom: 165px;
+
         color: var(--hint-color);
         animation: show-rotated 1s .3s both;
         text-align: center;
@@ -339,12 +337,10 @@ const
     #burger {
         max-width: 75vw;
         max-height: 50vh;
-        object-fit: contain;
 
         animation: wiggle 1.5s infinite;
         filter: drop-shadow(5px 5px 20px black)
     }
-
 
     page#one {
         gap: calc(5vh + 3vw)
@@ -359,7 +355,9 @@ const
         justify-content: normal
     }
 
-    column {
+
+
+    columns {
         width: 100%;
         display: flex;
 
@@ -367,7 +365,7 @@ const
         justify-content: space-evenly;
         margin-bottom: 60px;
 
-        .section {
+        column {
             width: 20%;
             display: flex;
             gap: 15px;
@@ -392,18 +390,17 @@ const
     }
 
     @media (max-width: 768px) {
-        page#three img, page#four img, carousel item img {
+        page#three img, page#four img, carousel carousel-item img {
             height: fit-content;
-            max-width: 100%;
-            object-fit: contain
+            max-width: 100%
         }
-        .section {
+        column {
             width: 40%!important
         }
-        carousel item:not(:first-child) {
+        carousel carousel-item:not(:first-child) {
             display: none
         }
-        carousel item:first-child {
+        carousel carousel-item:first-child {
             opacity: 1!important;
             animation: unset!important
         }
@@ -418,35 +415,28 @@ const
     page#four {
         align-content: space-evenly;
 
-        column {
+        columns {
             justify-content: space-around;
 
-            .section {
-                width: 35%;
-                gap: 20px
+            column {
+                gap: 20px;
+                width: 35%
             }
         }
     }
 
-    page#five {
-        align-content: center;
+    socials {
+        width: 65vw;
+        margin-top: 15vh;
 
-        div {
-            width: 65vw;
-            display: flex;
-            justify-content: space-evenly;
-            margin-top: 15vh;
-            flex-wrap: wrap;
-            row-gap: 30px
-        }
-    }
-
-    main {
-        width: 100%
+        display: flex;
+        justify-content: space-evenly;
+        row-gap: 30px;
+        flex-wrap: wrap
     }
 </style>
 
 
 <script defer>
-i=document.getElementsByTagName('indicator')[0];l='five';pl={0:'one',1:'two',2:'three',3:'four',4:'five'};po=new IntersectionObserver(en=>{en.forEach(e=>{if(e.isIntersecting){e.target.classList.add('current')}else{e.target.classList.remove('current')}})},{rootMargin:'0%',threshold:'.8'});ts=0;te=0;function sp(s){n=pl[Math.round(window.scrollY/window.innerHeight)+s];if(n!==undefined){i.style.animation='hide .5s 1 both';document.getElementById(n).scrollIntoView();if(n!==l){i.style.animation='show 1s 2s 1 both'}}};(f=>{f('touchstart',e=>{ts=e.changedTouches[0].screenY});f('touchend',e=>{te=e.changedTouches[0].screenY;if(te>ts){sp(-1)}else if(te<ts){sp(1)}});f('touchmove',e=>{e.preventDefault()},{passive:false});f('keydown',e=>{if(e.key=='ArrowDown'){sp(1);e.preventDefault()}else if(e.key=='ArrowUp'){sp(-1);e.preventDefault()}});f('wheel',e=>{e.preventDefault();(e.deltaY>0)?sp(1):sp(-1)},{passive:false})})(window.addEventListener);document.querySelectorAll('page').forEach(e=>po.observe(e))
+(w,d=>{i=d.getElementsByTagName('indicator')[0];l='five';pl={0:'one',1:'two',2:'three',3:'four',4:l};po=new IntersectionObserver(en=>{en.forEach(e=>{if(e.isIntersecting){e.target.classList.add('current')}else{e.target.classList.remove('current')}})},{rootMargin:'0%',threshold:'.8'});ts=0;te=0;function sp(s){n=pl[Math.round(w.scrollY/w.innerHeight)+s];if(n!==undefined){i.style.animation='hide .5s both';d.getElementById(n).scrollIntoView();if(n!==l){i.style.animation='show 1s 2s both'}}};(f=>{f('touchstart',e=>{ts=e.changedTouches[0].screenY});f('touchend',e=>{te=e.changedTouches[0].screenY;if(te>ts){sp(-1)}else if(te<ts){sp(1)}});f('touchmove',e=>{e.preventDefault()},{passive:false});f('keydown',e=>{if(e.key=='ArrowDown'){sp(1);e.preventDefault()}else if(e.key=='ArrowUp'){sp(-1);e.preventDefault()}});f('wheel',e=>{e.preventDefault();(e.deltaY>0)?sp(1):sp(-1)},{passive:false})})(w.addEventListener);d.querySelectorAll('page').forEach(e=>po.observe(e))})(window,document)
 </script>

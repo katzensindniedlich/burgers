@@ -5,15 +5,17 @@
             "description": "For a school project"
         }
     },
+
     "hello": "We're speaking english!",
     "welcome": "Welcome to Burgers Inc.",
-    "bruger_alt": "Burger",
-    "arrow_alt": "Arrow",
-    "placeholder_alt": "Placeholder",
-    "scroll": "Please scroll down",
+    "scroll_note": "Please scroll down",
     "products_title": "Our Products",
     "environment_title": "Environmental aware",
     "location_title": "Around the World",
     "follow_us": "Follow us ❤️",
-    "change_lang": "Change the language here"
+    "change_lang": "Change the language here",
+
+    "bruger_alt": "Burger",
+    "arrow_alt": "Arrow",
+    "placeholder_alt": "Placeholder"
 }

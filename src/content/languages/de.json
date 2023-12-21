@@ -5,15 +5,17 @@
             "description": "Für ein Schulprojekt"
         }
     },
+
     "hello": "Wir sprechen Deutsch!",
     "welcome": "Willkommen bei Burgers Inc.",
-    "bruger_alt": "Bürger",
-    "arrow_alt": "Pfeil",
-    "placeholder_alt": "Platzhalter",
-    "scroll": "Scrollen Sie Runter",
+    "scroll_note": "Scrollen Sie Runter",
     "products_title": "Unsere Produkte",
     "environment_title": "Umweltbewusst",
     "location_title": "Auf der ganzen Welt",
     "follow_us": "Folge uns ❤️",
-    "change_lang": "Sprache hier änderbar"
+    "change_lang": "Sprache hier änderbar",
+
+    "bruger_alt": "Bürger",
+    "arrow_alt": "Pfeil",
+    "placeholder_alt": "Platzhalter"
 }
