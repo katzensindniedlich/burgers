@@ -1,12 +1,12 @@
 @use 'scss';
 
 
-::-webkit-scrollbar {
-    display: none
-}
-
 ::selection {
     background: var(--selection-color);
+}
+
+::-webkit-scrollbar {
+    display: none
 }
 
 html {
