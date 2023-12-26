@@ -14,11 +14,11 @@ export function getLocaleUrl(url: URL, locale: string) {
 }
 
 export async function getLanguagePaths() {
-    return languages.map(entry => {
-            return {
+    return languages.map(entry => (
+            {
                 params: { locale: entry.id },
-                props: { text: entry.data }
+                props: entry.data 
             }
-        }
+        )
     )
 }
